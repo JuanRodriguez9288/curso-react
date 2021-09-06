@@ -1,14 +1,20 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar';
-
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import CardWidget from './components/CardWidget/cardwidget';
+import miFuncion from './components/NavBar/NavBar';
 
 const App = () => {
   return (
 
     <div className="App">
-    <NavBar />
-      
+        <NavBar>  
+  
+        </NavBar>
+        <ItemListContainer>
+
+        </ItemListContainer>
     </div>
   );
 }

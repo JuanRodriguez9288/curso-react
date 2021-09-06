@@ -1,10 +1,22 @@
+import React from 'react'
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import logoNavBar from './logoprueba.png';
 
+import CardWidget from '../CardWidget/cardwidget';
 
-const NavBar = () => {
+
+function NavBar() {
+  
+ // const ItemListContainer = () => {
+ //     console.log('Texto de prueba ItemListContainer')
+ //   }
+ // function ItemListContainer() {
+ //     console.log('Texto de prueba ItemListContainer')
+ //   }
   return (
+    <>
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className='NavBar' class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <img src={logoNavBar} alt="logo" />
           <a class="navbar-brand" href="#">PruebaLogo</a>
@@ -37,10 +49,12 @@ const NavBar = () => {
             </ul>
           </div>
         </div>
+        <CardWidget cant='5' />
       </nav>
     </div>
+    </>
   )
 }
 
 
-export default NavBar
+export default NavBar;
