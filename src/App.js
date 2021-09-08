@@ -37,7 +37,7 @@ const App = () => {
             
         </NavBar>
         <ItemListContainer>
-          <h1>  
+          {/* <h1>  
              {count}
           </h1>
           <button onClick={() => setCount(count + 1)} >  
@@ -49,7 +49,7 @@ const App = () => {
           <button onClick={miFuncionRestar}>Restar hasta 0</button>
           <button onClick={miFuncionSumar}>Sumar hasta límite de stock</button>
           { count == 0 ? <h1>Contador es 0</h1> : <h1>Contador no es 0</h1>}
-          <Button btntxt='comprar' count={count} />
+          <Button btntxt='comprar' count={count} /> */}
         </ItemListContainer>
     </div>
   );

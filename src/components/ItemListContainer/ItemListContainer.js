@@ -1,5 +1,11 @@
 import React from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { useState, useEffect } from 'react'
+
+import CounterWhitCommands from '../CounterWhitCommands/CounterWhitCommands';
+
+
+
 
 function ItemListContainer(props) {
     console.log(props);
@@ -12,6 +18,7 @@ function ItemListContainer(props) {
         <li><a class="item" href="#">Producto 3</a></li>
     </ul>
     {props.children}
+    <CounterWhitCommands />
   </>
   )
 }
