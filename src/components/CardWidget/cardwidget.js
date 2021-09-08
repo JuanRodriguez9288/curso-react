@@ -1,8 +1,8 @@
-import logoCart from './cart.png';
+import logoCart from './cart3.png';
 import estilo from'./cardwidget.css';
 
 
-const CardWidget = ({cant}) => {
+const CardWidget = ({cantidad}) => {
   
 
  // const miFuncion = () => {
@@ -15,7 +15,7 @@ const CardWidget = ({cant}) => {
   	
     <div className = 'divCart'>
       <img src={logoCart} alt="logo" />
-      <p class="navbar-brand" href="#" >{cant}</p>
+      <p className="navbar-brand" href="#" >{cantidad}</p>
     </div>
   )
 }

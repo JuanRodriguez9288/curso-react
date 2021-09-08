@@ -1,7 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const Button = (funcion) {
-	<button onClick={funcion} className='button'></button>
+function Button(props) {
+	function doClick() {
+	console.log('pruebaclick')
+	}
+	return <button type="button" onClick={doClick}>{props.btntxt}</button>
 }
 
-export default Button
+
+export default Button;
