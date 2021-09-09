@@ -1,23 +1,73 @@
 .divCounter {
     display: flex;
     position: relative;
-    flex-direction: column;
-    justify-content: cener;
-    align-content: center;
-    align-self: center;
-    align-items: center;
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: space-around;
+    /* align-content: center;
+    align-self: center; */
     margin-left: auto;
     margin-right: auto;
     padding-left: 5px;
     padding-top: 5px;
-    border-color:  #127a2d ;
+    padding-right: 5px;
+    border-color:  #78df6a ;
     border-style: solid;
     border-width: 1px 1px 3px 3px;
     border-radius: 30px 30px 30px 30px;
-    -webkit-box-shadow: inset 2px 2px 6px 2px #127a2d;
-    box-shadow: inset 2px 2px 6px 2px #127a2d;
-    color:  #127a2d ;
+    -webkit-box-shadow: inset 2px 2px 6px 2px #78df6a;
+    box-shadow: inset 2px 2px 6px 2px #78df6a;
+    color:  #78df6a ;
     width: 20rem;
+    border-color: gray;
+  background: #cccdcd;
+  background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(126, 193, 228, 0.897339) 50%, rgba(204, 205, 205, 0.80014) 100%);
+  border-width: 1px 0px 1px 0px;
+  border-radius: 8px 8px 8px 8px;
+  -webkit-box-shadow: 3px 3px 8px 2px #7ec1e4;
+  box-shadow: 3px 3px 8px 2px #7ec1e4;
     /*background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(126, 193, 228, 0.897339) 50%, rgba(204, 205, 205, 0.80014) 100%);
     */
   }
+  .btnCounter {
+    background-color: #7ec1e4;
+    color: #1a1f21;
+    height: max-content;
+    width: 2.5em;
+    border-radius: 5px 5px 5px 5px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+  .txtCantidad {
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: #d0dfce;
+    color: #1a1f21;
+    height: max-content;
+    width: 4em;
+    font-weight: 400;
+    font-size: 1.1em;
+    border-radius: 5px 5px 5px 5px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+  h5 {
+    font-weight: 400;
+    font-size: 1.1em;
+    color: #1a1f21;
+  }
+  button:disabled{
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    opacity: 0.45 !important; 
+    background-color: gray !important;
+ }
+ button:hover{
+    transform: scale(1.1, 1.1);
+    transition: all 300ms ease-in-out;
+ }

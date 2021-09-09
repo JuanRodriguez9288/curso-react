@@ -20,19 +20,21 @@ const CounterWhitCommands = () => {
   const miFuncionSumar = () => {
     if (count == stock) {
       alert('No hay stock')
+      console.log("Se deshabilita")
+      document.getElementById("btnSumar").disabled = true;
     }else{
+      console.log("habilitado")
+      document.getElementById("btnSumar").disabled = false;
       setCount(count + 1)
     }
 }
-
    
      return (
          
        <div className="divCounter">
-
-          <button onClick={miFuncionRestar}>Restar hasta 0</button>
-            <h1>{count}</h1>
-          <button onClick={miFuncionSumar}>Sumar hasta límite de stock</button>
+          <button className="btnCounter" onClick={miFuncionRestar}>-</button>
+            <h5 className="txtCantidad">{count}</h5>
+          <button id="btnSumar" className="btnCounter" onClick={miFuncionSumar}>+</button>
           
        </div>
      )
