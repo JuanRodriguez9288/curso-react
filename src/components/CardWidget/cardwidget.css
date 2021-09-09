@@ -8,13 +8,17 @@
   align-items: center;
   margin-right: 5px;
   padding-left: 5px;
-  border-color:  #127a2d ;
+  border-color:  #5bdf4f ;
   border-style: solid;
   border-width: 1px 1px 3px 3px;
-  border-radius: 30px 30px 30px 30px;
-  -webkit-box-shadow: inset 2px 2px 6px 2px #127a2d;
-  box-shadow: inset 2px 2px 6px 2px #127a2d;
-  color:  #127a2d ;
-  /*background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(126, 193, 228, 0.897339) 50%, rgba(204, 205, 205, 0.80014) 100%);
-  */
+  border-radius: 20px 20px 20px 20px;
+  background: #cccdcd;
+  background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(108, 230, 87, 0.897) 50%, rgba(204, 205, 205, 0.80014) 100%);
+  -webkit-box-shadow: 1px 1px 1px 2px #5bdf4f;
+  box-shadow: 1px 2px 8px 1px #5bdf4f;
+   
+  /* -webkit-box-shadow: inset 2px 2px 6px 2px #5bdf4f;
+  box-shadow: inset 2px 2px 6px 2px #5bdf4f;
+  color:  #5bdf4f ; */
+  
 }

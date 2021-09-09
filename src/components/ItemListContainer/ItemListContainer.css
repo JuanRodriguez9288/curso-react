@@ -1,0 +1,10 @@
+
+.imgBg {
+    background-image: url("fondo1.JPG");
+    height: 100Vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 

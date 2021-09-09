@@ -21,16 +21,16 @@
     width: 20rem;
     border-color: gray;
   background: #cccdcd;
-  background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(126, 193, 228, 0.897339) 50%, rgba(204, 205, 205, 0.80014) 100%);
+  background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(108, 230, 87, 0.897) 50%, rgba(204, 205, 205, 0.80014) 100%);
   border-width: 1px 0px 1px 0px;
   border-radius: 8px 8px 8px 8px;
-  -webkit-box-shadow: 3px 3px 8px 2px #7ec1e4;
-  box-shadow: 3px 3px 8px 2px #7ec1e4;
+  -webkit-box-shadow: 3px 3px 8px 2px #5bdf4f;
+  box-shadow: 3px 3px 8px 2px #5bdf4f;
     /*background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(126, 193, 228, 0.897339) 50%, rgba(204, 205, 205, 0.80014) 100%);
     */
   }
   .btnCounter {
-    background-color: #7ec1e4;
+    background-color: #5bdf4f;
     color: #1a1f21;
     height: max-content;
     width: 2.5em;

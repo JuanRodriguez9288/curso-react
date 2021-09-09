@@ -10,23 +10,34 @@ const CounterWhitCommands = () => {
   const stock = 10
   console.log(count)
   console.log(setCount)
+
+  function btnDisable(valorContador){
+    console.log('recibo'+valorContador)
+    if (valorContador == stock) {
+      document.getElementById("btnSumar").disabled = true;
+    }else{
+      document.getElementById("btnSumar").disabled = false;
+    }
+  }
   const miFuncionRestar = () => {
+      
       if (count <= 0) {
         console.log(count)
       }else{
         setCount(count - 1)
+        btnDisable(count - 1);
       }
+      
   }
   const miFuncionSumar = () => {
+    
     if (count == stock) {
-      alert('No hay stock')
-      console.log("Se deshabilita")
-      document.getElementById("btnSumar").disabled = true;
+      console.log(count)
     }else{
-      console.log("habilitado")
-      document.getElementById("btnSumar").disabled = false;
       setCount(count + 1)
+      btnDisable(count + 1);
     }
+    
 }
    
      return (
