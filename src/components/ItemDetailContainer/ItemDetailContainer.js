@@ -3,13 +3,18 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import estilo from'./ItemDetailContainer.css';
+import imghokidachi from './bonsaihokidachi.jpg'
+import imgsokan from './bonsaisokan.jpg'
+import imgkomono from './bonsaikomono.jpg'
+import imgneagari from './bonsaineagari.webp'
+import imgarcerojo from './bonsaiarcerojo.jpg'
 
 const listaDeItemsDetail = [
-    {id:'01', title:'Bonsai Hokidachi', price:'U$S 60', pictureUrl:'https://t2.ev.ltmcdn.com/es/posts/0/3/6/hokidachi_2630_11_600.jpg'},
-    {id:'02', title:'Bonsai Sokan', price:'U$S 45', pictureUrl:'https://t2.ev.ltmcdn.com/es/posts/0/3/6/sokan_o_sankan_2630_12_600.jpg'},
-    {id:'03', title:'Bonsai Komono', price:'U$S 82', pictureUrl:'https://t2.ev.ltmcdn.com/es/posts/0/3/6/bonsai_komono_2630_4_600.jpg'},
-    {id:'04', title:'Bonsai Ne Agari', price:'U$S 55', pictureUrl:'https://t1.ev.ltmcdn.com/es/posts/0/3/6/ne_agari_o_neagari_2630_17_600.jpg'},
-    {id:'05', title:'Bonsai Arce Rojo', price:'U$S 125', pictureUrl:'https://estaticos.qdq.com/swdata/photos/749/749963271/arce-rojo.jpg'},
+    {id:'01', title:'Bonsai Hokidachi', price:'U$S 60', pictureUrl:imghokidachi},
+    {id:'02', title:'Bonsai Sokan', price:'U$S 45', pictureUrl:imgsokan},
+    {id:'03', title:'Bonsai Komono', price:'U$S 82', pictureUrl:imgkomono},
+    {id:'04', title:'Bonsai Ne Agari', price:'U$S 55', pictureUrl:imgneagari},
+    {id:'05', title:'Bonsai Arce Rojo', price:'U$S 125', pictureUrl:imgarcerojo},
         
 ]
 function getItem(ListDetail){
