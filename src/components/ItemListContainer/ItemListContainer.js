@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import estilo from'./ItemListContainer.css';
 import CounterWhitCommands from '../CounterWhitCommands/CounterWhitCommands';
 import ItemList from '../ItemList/ItemList';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 
 const listaDeItems = [
@@ -19,13 +20,9 @@ function ItemListContainer(props) {
     <>
     <div className="imgBg">
         <a className="item" href="#">Listado de productos</a>
-    <ul class="menu">
-        <li><a class="item" href="#">Producto 1</a></li>
-        <li><a class="item" href="#">Producto 2</a></li>
-        <li><a class="item" href="#">Producto 3</a></li>
-    </ul>
     {props.children}
     <ItemList items={listaDeItems}/>
+    <ItemDetailContainer />
     <CounterWhitCommands />
     </div>
     

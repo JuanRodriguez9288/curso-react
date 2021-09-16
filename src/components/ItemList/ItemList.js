@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Item from '../Item/Item';
 
-  
-function ItemList ({items}) {
-    const [listaBonsai, setListaBonsai] = useState ([])
-    function getList(){
-      
-    return new Promise((resolve, reject) => {
-      setTimeout (() => resolve(items), 3000)
+
+function getList(recibe){
+      return new Promise((resolve, reject) => {
+        setTimeout (() => resolve(recibe), 3000)
     })
     }
+  
+function ItemList ({items}) {
+  const [listaBonsai, setListaBonsai] = useState ([])
      useEffect(()=>{
-    const list= getList()
+    const list= getList(items)
+    console.log(list)
     list.then(list =>{
         setListaBonsai(list)
      })

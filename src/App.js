@@ -6,19 +6,28 @@ import Button from './components/buttons/Button';
 
 import CardWidget from './components/CardWidget/cardwidget';
 import miFuncion from './components/NavBar/NavBar';
-const listaDeBonsais = [
-  {id:'01', name:'Bonsai clase 1', desc:'Bonsai del tipo 1', stock:'10'},
-  {id:'02', name:'Bonsai clase 2', desc:'Bonsai del tipo 2', stock:'2'},
-  {id:'03', name:'Bonsai clase 3', desc:'Bonsai del tipo 3', stock:'4'},
-]
+
 const App = () => {
   const [count, setCount] = useState (0)
-  
+  // const [productos, setProductos] = useState ([])
+
+  // useEffect (() =>{
+  //   fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone')
+  //   .then (res => {return res.json()}).then(function(respuesta){
+  //     setProductos(respuesta.results.slice(0,10))
+  //   })
+  // },[])
   return (
     <div className="App">
         <NavBar cantidad={count}>  
             
         </NavBar>
+        {/* <ul>
+          {
+            productos.map(prod =>{
+              return <li key={prod.id}>{prod.title}</li>
+            })}
+        </ul> */}
         <ItemListContainer>
         
         </ItemListContainer>

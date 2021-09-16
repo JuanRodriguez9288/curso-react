@@ -1,0 +1,8 @@
+.cardDetail {
+    height: 250px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: space-around;
+  }
