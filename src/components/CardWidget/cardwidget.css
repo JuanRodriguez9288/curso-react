@@ -8,15 +8,21 @@
   align-items: center;
   margin-right: 5px;
   padding-left: 5px;
-  border-color:  #5bdf4f ;
+  border-color:  #bfcfbd ;
   border-style: solid;
-  border-width: 1px 1px 3px 3px;
+  /* border-width: 1px 1px 3px 3px;
   border-radius: 20px 20px 20px 20px;
   background: #cccdcd;
   background: linear-gradient(90deg, rgba(204, 205, 205, 0.697899) 0%, rgba(108, 230, 87, 0.897) 50%, rgba(204, 205, 205, 0.80014) 100%);
   -webkit-box-shadow: 1px 1px 1px 2px #5bdf4f;
-  box-shadow: 1px 2px 8px 1px #5bdf4f;
+  box-shadow: 1px 2px 8px 1px #5bdf4f; */
    
+  background: linear-gradient(90deg, rgba(204, 205, 205, 0.80014) 0%, rgba(21, 129, 6, 0.74) 50%, rgba(204, 205, 205, 0.80014) 100%);
+  border-width: 1px 1px 1px 1px;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-box-shadow: 1px 1px 1px 2px #0d7a12;
+  box-shadow: 1px 2px 8px 1px #0d5a11;
+
   /* -webkit-box-shadow: inset 2px 2px 6px 2px #5bdf4f;
   box-shadow: inset 2px 2px 6px 2px #5bdf4f;
   color:  #5bdf4f ; */

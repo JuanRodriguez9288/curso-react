@@ -21,9 +21,16 @@ function ItemListContainer(props) {
     <div className="imgBg">
         <a className="item" href="#">Listado de productos</a>
     {props.children}
-    <ItemList items={listaDeItems}/>
-    <ItemDetailContainer />
-    <CounterWhitCommands />
+    <div className="groupCardDetail">
+        <ItemList items={listaDeItems}/>
+    </div>
+    <div>
+        <ItemDetailContainer />
+    </div>
+    <div>
+        <CounterWhitCommands />
+    </div>
+    
     </div>
     
   </>
