@@ -4,34 +4,31 @@
     flex-direction: row;
     align-items: space-around;
     justify-content: space-around;
-    /* align-content: center;
-    align-self: center; */
     margin-left: auto;
+    margin-top: -10px;
     margin-right: auto;
     padding-left: 5px;
-    padding-top: 5px;
     padding-right: 5px;
     border-style: solid;
     border-width: 1px 1px 3px 3px;
     border-radius: 30px 30px 30px 30px;
-
+    width: 10.5em;
+    height: 1.5em;
     border-color: gray;
     background: linear-gradient(90deg, rgba(148, 82, 7, 0.63) 0%, rgba(21, 129, 6, 0.74) 50%, rgba(148, 82, 7, 0.63) 100%);
     border-width: 1px 2px 1px 2px;
     border-radius: 8px 8px 8px 8px;
     -webkit-box-shadow: 3px 3px 8px 2px #0d7a12;
     box-shadow: 3px 3px 8px 2px #0d5a11;
-
-    
-    width: 20rem;
-  background: #cccdcd;
-  
+    background: #cccdcd;
   }
   .btnCounter {
     background-color: #0d5a1196;
     color: #1a1f21;
-    height: max-content;
-    width: 2.5em;
+    width: 1.5em;
+    height: 1.2em;
+    margin-top: 2px;
+    padding-top: -12px;
     border-radius: 5px 5px 5px 5px;
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
@@ -39,20 +36,13 @@
     border-top: 1px solid gray;
   }
   .txtCantidad {
-    justify-content: center;
     align-self: center;
-    align-items: center;
-    background-color: #d0dfce;
     color: #1a1f21;
-    height: max-content;
-    width: 4em;
+    height: 1.1em;
+    margin-top: 10px ;
+    width: 3em;
     font-weight: 400;
-    font-size: 1.1em;
-    border-radius: 5px 5px 5px 5px;
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-top: 1px solid gray;
+    font-size: 1.0em;
   }
   h5 {
     font-weight: 400;

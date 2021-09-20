@@ -1,4 +1,4 @@
-import logoCart from './cart3.png';
+import logoCart from '../images/cart3.png';
 import estilo from'./cardwidget.css';
 
 

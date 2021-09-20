@@ -3,3 +3,38 @@
     max-width: 50px;
     border-radius: 2px 2px 2px 2px;
   }
+  .estiloLink {
+    text-decoration: none;
+    color: rgba(59, 59, 59, 0.931);
+    font-size: 1.2em;
+  }
+  .estiloLink:hover {
+    text-decoration: none;
+    transform: scale(1.1, 1.1);
+    transition: all 350ms ease-in-out;
+    color: rgba(59, 59, 59, 0.931);
+    font-size: 1.2em;
+  }
+  .estiloHeader {
+    z-index: 100;
+    background: #cccdcd;
+    background: linear-gradient(10deg, rgba(21, 129, 6, 0.63) 0%, rgba(148, 82, 7, 0.74) 50%, rgba(21, 129, 6, 0.63) 100%);
+    margin-left: 1%;
+    margin-bottom: 0.3%;
+    position: fixed;
+    top: 0;
+    width: 98%;
+    height: 3rem;
+    min-height: 80px;
+    border-bottom: 2px solid gray;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .estiloUl {
+    background: #cccdcd;
+    background: linear-gradient(10deg, rgba(21, 129, 6, 0.63) 0%, rgba(148, 82, 7, 0.74) 50%, rgba(21, 129, 6, 0.63) 100%);
+    margin-left: 1%;
+    margin-bottom: 0.3%;
+    min-height: 100px;
+    border-bottom: 2px solid gray;
+    border-radius: 0px 0px 10px 10px;
+  }

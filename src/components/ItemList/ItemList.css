@@ -1,0 +1,56 @@
+.centrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60Vh;
+    width: 98Vw;
+  }
+  .gif {
+    height: 18Vh;
+  }
+  
+.estiloLista {
+    font-weight: 600;
+    margin-top: 10px;
+    color: rgba(59, 59, 59, 0.931);
+    border-width: 2px 2px 2px 2px;
+    border-radius: 8px 8px 8px 8px;
+    border-color: gray;
+    background: linear-gradient(90deg, rgba(148, 82, 7, 0.23) 0%, rgba(76, 141, 68, 0.23) 50%, rgba(148, 82, 7, 0.23) 100%);
+  
+    -webkit-box-shadow: 3px 3px 8px 2px #0d7a12;
+    box-shadow: 3px 3px 8px 2px #0d5a11;
+  }
+.estiloItemsLista {
+    font-weight: 500;
+    margin-top: 10px;
+    width: 190px;
+    margin-bottom: 10px;
+    color: rgba(59, 59, 59, 0.931);
+    list-style: none;
+    border-width: 2px 2px 2px 2px;
+    border-radius: 8px 8px 8px 8px;
+    border-color: gray;
+    background: linear-gradient(90deg, rgba(148, 82, 7, 0.83) 0%, rgba(21, 129, 6, 0.84) 50%, rgba(148, 82, 7, 0.83) 100%);
+    border-width: 2px 2px 2px 2px;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: 3px 3px 8px 2px #0d7a12;
+    box-shadow: 3px 3px 8px 2px #0d5a11;
+  }
+  .estiloItemsLista:hover {
+    transform: scale(1.1, 1.1);
+    transition: all 350ms ease-in-out;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(59, 59, 59);
+    list-style: none;
+    border-width: 2px 2px 2px 2px;
+    border-radius: 8px 8px 8px 8px;
+    border-color: gray;
+    background: linear-gradient(90deg, rgba(148, 82, 7, 0.83) 0%, rgba(21, 129, 6, 0.84) 50%, rgba(148, 82, 7, 0.83) 100%);
+    border-width: 2px 2px 2px 2px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: 3px 3px 1px 2px #0d7a12;
+    box-shadow: 0px 0px 8px 1px #0d5a11;
+  }

@@ -11,21 +11,21 @@ const CounterWhitCommands = () => {
   console.log(count)
   console.log(setCount)
 
-  function btnDisable(valorContador){
-    console.log('recibo'+valorContador)
-    if (valorContador == stock) {
-      document.getElementById("btnSumar").disabled = true;
-    }else{
-      document.getElementById("btnSumar").disabled = false;
-    }
-  }
+  // function btnDisable(valorContador){
+  //   console.log('recibo'+valorContador)
+  //   if (valorContador == stock) {
+  //     document.getElementById("btnSumar").disabled = true;
+  //   }else{
+  //     document.getElementById("btnSumar").disabled = false;
+  //   }
+  // }
   const miFuncionRestar = () => {
       
       if (count <= 0) {
         console.log(count)
       }else{
         setCount(count - 1)
-        btnDisable(count - 1);
+        // btnDisable(count - 1);
       }
       
   }
@@ -35,7 +35,7 @@ const CounterWhitCommands = () => {
       console.log(count)
     }else{
       setCount(count + 1)
-      btnDisable(count + 1);
+      // btnDisable(count + 1);
     }
     
 }
@@ -43,9 +43,9 @@ const CounterWhitCommands = () => {
      return (
          
        <div className="divCounter">
-          <button className="btnCounter" onClick={miFuncionRestar}>-</button>
+          <button className="btnCounter" onClick={miFuncionRestar} disabled={count === 0}>-</button>
             <h5 className="txtCantidad">{count}</h5>
-          <button id="btnSumar" className="btnCounter" onClick={miFuncionSumar}>+</button>
+          <button id="btnSumar" className="btnCounter" onClick={miFuncionSumar} disabled={count === stock}>+</button>
           
        </div>
      )

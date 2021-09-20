@@ -10,7 +10,7 @@
     align-items: space-around;
     justify-content: space-around;
     border-color: gray;
-    background: linear-gradient(90deg, rgba(148, 82, 7, 0.63) 0%, rgba(21, 129, 6, 0.74) 50%, rgba(148, 82, 7, 0.63) 100%);
+    background: linear-gradient(90deg, rgba(148, 82, 7, 0.43) 0%, rgba(21, 129, 6, 0.44) 50%, rgba(148, 82, 7, 0.43) 100%);
     border-width: 2px 2px 2px 2px;
     border-radius: 8px 8px 8px 8px;
     -webkit-box-shadow: 3px 3px 8px 2px #0d7a12;
