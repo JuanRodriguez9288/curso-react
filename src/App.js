@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemDetailContainerFilter from './components/ItemDetailContainer/ItemDetailContainerFilter';
 import ItemDetailContainerFilterCat from './components/ItemDetailContainer/ItemDetailContainerFilterCat';
+import Cart from './components/cart/cart';
 
 import Button from './components/buttons/Button';
 
@@ -21,12 +22,12 @@ import imgarcerojo from '../src/components/images/bonsaiarcerojo.jpg'
 import imgdecipres from '../src/components/images/bonsaidecipres.jpg'
 
 const listaDeItems = [
-    {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi', price:'U$S 60', pictureUrl:imghokidachi},
-    {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', price:'U$S 45', pictureUrl:imgsokan},
-    {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', price:'U$S 82', pictureUrl:imgkomono},
-    {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', price:'U$S 55', pictureUrl:imgneagari},
-    {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', price:'U$S 125', pictureUrl:imgarcerojo},
-    {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés ', price:'U$S 95', pictureUrl:imgdecipres},
+    {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi', stock:20, price:'U$S 60', pictureUrl:imghokidachi},
+    {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:'U$S 45', pictureUrl:imgsokan},
+    {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', stock:10, price:'U$S 82', pictureUrl:imgkomono},
+    {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', stock:3, price:'U$S 55', pictureUrl:imgneagari},
+    {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', stock:5, price:'U$S 125', pictureUrl:imgarcerojo},
+    {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6, price:'U$S 95', pictureUrl:imgdecipres},
     
     ]
 const App = () => {
@@ -55,7 +56,6 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <ItemListContainer/>
-      
           </Route>
           <Route path="/productlistdetail">
           <ItemDetailContainer/>
@@ -66,6 +66,10 @@ const App = () => {
           <Route path="/productdetailCat/:idCat">
           <ItemDetailContainerFilterCat/>
           </Route>
+          <Route path="/cart">
+          <Cart/>
+          </Route>
+      
           
         </Switch>
       </BrowserRouter>
