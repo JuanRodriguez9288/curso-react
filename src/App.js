@@ -7,7 +7,7 @@ import ItemDetailContainerFilter from './components/ItemDetailContainer/ItemDeta
 import ItemDetailContainerFilterCat from './components/ItemDetailContainer/ItemDetailContainerFilterCat';
 import Cart from './components/cart/cart';
 
-import Button from './components/buttons/Button';
+// import Button from './components/buttons/Button';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
