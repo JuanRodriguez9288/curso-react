@@ -1,18 +1,21 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import logoNavBar from '../images/logoprueba.png';
 import estilo from'./NavBar.css';
 import CardWidget from '../CardWidget/cardwidget';
-
+import {UserContext} from '../../components/context/UserContext'
+import {CartContext} from '../context/CartContext'
 
 function NavBar(props) {
-  // const [info, setInfo] = useState ('')
 
+const { quantity, changeQuantity, addItem, productsCart, setProductsCart } = useContext(CartContext);
+
+  // const [info, setInfo] = useState ('')
+const user = useContext(UserContext)
   useEffect ( () =>{
-    
     console.log ('Después del primer renderizado')
         return () => {
           console.log ('Antes de desmontar el componente')
@@ -31,7 +34,7 @@ function NavBar(props) {
     <div>
       <nav className='NavBar' className="navbar navbar-expand-lg navbar-light bg-transparent estiloHeader">
         <div className="container-fluid">
-          <Link to={`/`} className="estiloLink" aria-current="page" href="#"><img className='estiloImgLogo' src={logoNavBar} alt="logo" />BonsaiClub</Link>
+          <Link to={`/`} className="estiloLink" aria-current="page" href="#"><img className='estiloImgLogo' src={logoNavBar} alt="logo" />BonsaiClub{user}</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
           </button>
@@ -61,7 +64,7 @@ function NavBar(props) {
                  </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Contacto</a>
+                {user&& <a className="nav-link" href="#">Contacto</a>}
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Dónde estamos?</a>
@@ -69,7 +72,7 @@ function NavBar(props) {
             </ul>
           </div>
         </div>
-        <CardWidget cantidad={props.cantidad} />
+        <CardWidget cantidad={quantity} />
         </nav>
     </div>
     </>

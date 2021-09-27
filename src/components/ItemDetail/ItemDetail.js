@@ -1,14 +1,20 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { Component } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import estilo from'./ItemDetail.css';
 import CounterWhitCommands from '../CounterWhitCommands/CounterWhitCommands';
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import {CartContext} from '../context/CartContext'
+//import NotificationContext from '../context/NotificationContext';
 import loadingif from '../images/loading2.gif';
 
 function ItemDetail({item}) {
-    const [quantity, setQuantity] = useState(0)
+    const {quantity, addItem, IsInCart} = useContext(CartContext)
+    const [cart, setCart] = useState(true);
+    const [itemCount, setItemCount] = useState();
+    //const {setNotification}= useContext(NotificationContext)
     // const clickEnImagen = (ev) =>{
     //     alert('click')
     //     console.log(ev)
@@ -22,11 +28,12 @@ function ItemDetail({item}) {
     //         console.log(ev.key)
     //     }
     // }
-    const addToCart = (numberOfProductsAdd) =>{
-            console.log('agregado al carrito')
-            console.log(numberOfProductsAdd)
-            setQuantity(numberOfProductsAdd)
+    const addToCart = () =>{
+        setCart(false);
     }
+        const handleOnClick = () => {
+          setCart(true);
+        }
 
 
     if(!item){
@@ -43,8 +50,15 @@ function ItemDetail({item}) {
         <h6 className="card-title">{item.category}</h6>
         <p className="card-text">Precio: {item.price}</p>
         {/* <input onKeyDown={noVocales}/> */}
-        <CounterWhitCommands onConfirm={addToCart} item={item} />
-        <Link to={`/cart`} className="btnCart">Ir al carrito</Link>
+        
+        <CounterWhitCommands 
+        stock={item.stock}
+        initial={0}
+        setItemCount={setItemCount}
+        onAdd={addToCart}
+         item={item} />
+         
+        <Link to={`/cart`} className="btn btnCart" onClick={handleOnClick}>Ir al carrito</Link>
         </div>      
     </div>
     )

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -6,8 +6,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemDetailContainerFilter from './components/ItemDetailContainer/ItemDetailContainerFilter';
 import ItemDetailContainerFilterCat from './components/ItemDetailContainer/ItemDetailContainerFilterCat';
 import Cart from './components/cart/cart';
-
-// import Button from './components/buttons/Button';
+import { UserContext } from './components/context/UserContext'
+import { cartContext, CartContextProvider } from './components/context/CartContext'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -20,7 +20,7 @@ import imgkomono from '../src/components/images/bonsaikomono.jpg'
 import imgneagari from '../src/components/images/bonsaineagari.webp'
 import imgarcerojo from '../src/components/images/bonsaiarcerojo.jpg'
 import imgdecipres from '../src/components/images/bonsaidecipres.jpg'
-
+import {NotificationContextProvider} from './components/context/NotificationContext'
 const listaDeItems = [
     {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi', stock:20, price:'U$S 60', pictureUrl:imghokidachi},
     {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:'U$S 45', pictureUrl:imgsokan},
@@ -30,8 +30,22 @@ const listaDeItems = [
     {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6, price:'U$S 95', pictureUrl:imgdecipres},
     
     ]
+
+
+//export const UserContext = createContext()
 const App = () => {
   const [count, setCount] = useState (0)
+  const [user, setUser] = useState (undefined)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setUser('pruebacontexto')
+    }, 5000)
+  },[])
+
+
+
+
   // const [productos, setProductos] = useState ([])
   // const [input, setInput] = useState ('')
   // useEffect (() =>{
@@ -51,6 +65,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <CartContextProvider>
       <BrowserRouter>
        <NavBar cantidad={count} products={listaDeItems}></NavBar>
         <Switch>
@@ -70,11 +85,9 @@ const App = () => {
           <Cart/>
           </Route>
       
-          
         </Switch>
       </BrowserRouter>
-
-       
+      </CartContextProvider>
         {/* <div>
           <form onSubmit={handleForm}>
             <input type="text" onChange={(event) => setInput(event.target.value)}/>
@@ -91,6 +104,7 @@ const App = () => {
         {/* <ItemListContainer>
         
         </ItemListContainer> */}
+        
     </div>
   );
 }
