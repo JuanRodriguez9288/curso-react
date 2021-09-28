@@ -1,9 +1,14 @@
 import logoCart from '../images/cart3.png';
 import estilo from'./cardwidget.css';
-
-
+import React, { Component } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import {CartContext} from '../context/CartContext'
 const CardWidget = ({cantidad}) => {
-  
+  const [cart, setCart] = useState(true);
+  const handleOnClick = () => {
+    setCart(true);
+}
 
  // const miFuncion = () => {
  //     console.log('click en NavBar')
@@ -16,6 +21,7 @@ const CardWidget = ({cantidad}) => {
     <div className = 'divCart'>
       <img src={logoCart} alt="logo" />
       <p className="navbar-brand" href="#" >{cantidad}</p>
+      <Link to={`/cart`} className="btn" onClick={handleOnClick}>Ir</Link>
     </div>
   )
 }

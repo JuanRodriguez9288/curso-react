@@ -2,7 +2,7 @@ import { useState, useEffect, createContext } from 'react'
 export const CartContext = createContext([])
 
 export const CartContextProvider = ({children}) =>{
-    const [productsCart, setProductsCart] = useState(undefined);
+    const [productsCart, setProductsCart] = useState([]);
     const [quantity, setQuantity] = useState(0);
   
     const removeItem = (itemId) => {

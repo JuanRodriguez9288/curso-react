@@ -4,13 +4,13 @@ import { Link, NavLink } from 'react-router-dom'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import estilo from'./ItemDetail.css';
 import CounterWhitCommands from '../CounterWhitCommands/CounterWhitCommands';
-//import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import {CartContext} from '../context/CartContext'
 //import NotificationContext from '../context/NotificationContext';
 import loadingif from '../images/loading2.gif';
 
-function ItemDetail({item}) {
+function ItemDetailInCart({item}) {
     const {quantity, addItem, IsInCart} = useContext(CartContext)
     const [cart, setCart] = useState(true);
     const [itemCount, setItemCount] = useState();
@@ -31,9 +31,9 @@ function ItemDetail({item}) {
     const addToCart = () =>{
         setCart(false);
     }
-    const handleOnClick = () => {
+        const handleOnClick = () => {
           setCart(true);
-    }
+        }
 
 
     if(!item){
@@ -43,26 +43,19 @@ function ItemDetail({item}) {
     }
     return (
     <div className="card bg-transparent estiloCardDetail" >
-        <p>Vista detallada</p>
+        <p>Producto en carrito</p>
         <img src={item.pictureUrl} className="card-img-top estiloImgCardDetail" alt="..."></img>
         <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
         <h6 className="card-title">{item.category}</h6>
         <p className="card-text">Precio: {item.price}</p>
+        <p className="card-text">Agregados: {item.quantity}</p>
         {/* <input onKeyDown={noVocales}/> */}
         
-        <CounterWhitCommands 
-        stock={item.stock}
-        initial={0}
-        setItemCount={setItemCount}
-        onAdd={addToCart}
-         item={item} />
-         
-        <Link to={`/cart`} className="btn btnCart" onClick={handleOnClick}>Ir al carrito</Link>
         </div>      
     </div>
     )
 	}
 
 
-export default ItemDetail;
+export default ItemDetailInCart;
