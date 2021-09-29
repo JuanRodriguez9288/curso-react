@@ -48,7 +48,7 @@ function ItemDetail({item}) {
         <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
         <h6 className="card-title">{item.category}</h6>
-        <p className="card-text">Precio: {item.price}</p>
+        <p className="card-text">Precio U$S: {item.price}</p>
         {/* <input onKeyDown={noVocales}/> */}
         
         <CounterWhitCommands 

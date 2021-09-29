@@ -16,6 +16,8 @@ const CardWidget = ({cantidad}) => {
  // function otraFuncion() {
  //     console.log('click en NavBar funcion común')
  //   }
+ if (cantidad === 0) return <h5>Carrito vacio</h5>;
+
   return (
   	
     <div className = 'divCart'>

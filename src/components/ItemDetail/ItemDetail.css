@@ -55,3 +55,28 @@
     transform: scale(1.1, 1.1);
     transition: all 300ms ease-in-out;
  }
+ .estiloCardDetailInCart {
+  height: 450px;
+  width: 240px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: space-around;
+  justify-content: space-around;
+  border-color: gray;
+  background: linear-gradient(90deg, rgba(148, 82, 7, 0.43) 0%, rgba(21, 129, 6, 0.44) 50%, rgba(148, 82, 7, 0.43) 100%);
+  border-width: 2px 2px 2px 2px;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-box-shadow: 3px 3px 8px 2px #0d7a12;
+  box-shadow: 3px 3px 8px 2px #0d5a11;
+}
+.estiloCardDetailInCart:hover {
+  -webkit-box-shadow: 3px 3px 1px 2px #0d7a12;
+  box-shadow: 0px 0px 8px 1px #0d5a11;
+  transform: scale(1.1, 1.1);
+  transition: all 350ms ease-in-out;
+}

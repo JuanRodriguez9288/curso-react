@@ -8,7 +8,7 @@ import NotificationContext from '../context/NotificationContext';
 
 function CounterWhitCommands({stock, initial, onAdd, setItemCount, item}) {
   const [count, setCount] = useState (initial)
-  const { quantity, changeQuantity, addItem, productsCart, setProductsCart } = useContext(CartContext);
+  const { quantity,totalPriceProd, changeQuantity, addItem, productsCart, setProductsCart } = useContext(CartContext);
   //const {setNotification}= useContext(NotificationContext)
   // const [view, setView] = useState (true)
   // console.log(count)
@@ -42,7 +42,9 @@ function CounterWhitCommands({stock, initial, onAdd, setItemCount, item}) {
         changeQuantity(quantity - 1);
       }
   }
-  
+
+  const precioTotal = item.price * count;
+
 
 const onAddtoCart = () =>{
   const productsCartId = productsCart?.map(item=> item.id)
@@ -50,10 +52,11 @@ const onAddtoCart = () =>{
   if (productsCartId?.includes(item.id)) {
   const updateCart = productsCart?.map (i => {
       if (i.id === item.id){
-
+        let oldPrice = i.totalPrice
         let oldQuantity = i.quantity
         return{
           ...i,
+          totalPrice: precioTotal + oldPrice,
           quantity: count + oldQuantity
         }
       }else{
@@ -63,6 +66,7 @@ const onAddtoCart = () =>{
   setProductsCart(updateCart)
   }else{const newProduct = {
     ...item,
+    totalPrice: precioTotal,
     quantity: count,
   };
 

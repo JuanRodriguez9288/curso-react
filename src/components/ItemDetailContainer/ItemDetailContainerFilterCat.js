@@ -14,12 +14,12 @@ import imgarcerojo from '../images/bonsaiarcerojo.jpg'
 import imgdecipres from '../images/bonsaidecipres.jpg'
 
 const listaDeItems = [
-    {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi',stock:20,  price:'U$S 60', pictureUrl:imghokidachi},
-    {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:'U$S 45', pictureUrl:imgsokan},
-    {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', stock:10, price:'U$S 82', pictureUrl:imgkomono},
-    {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', stock:3, price:'U$S 55', pictureUrl:imgneagari},
-    {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', stock:5, price:'U$S 125', pictureUrl:imgarcerojo},
-    {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6,  price:'U$S 95', pictureUrl:imgdecipres},
+    {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi',stock:20,  price:60, pictureUrl:imghokidachi},
+    {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:45, pictureUrl:imgsokan},
+    {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', stock:10, price:82, pictureUrl:imgkomono},
+    {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', stock:3, price:55, pictureUrl:imgneagari},
+    {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', stock:5, price:125, pictureUrl:imgarcerojo},
+    {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6,  price:95, pictureUrl:imgdecipres},
     
     ]
 function getItem(ListDetail){
