@@ -6,11 +6,26 @@ export const CartContextProvider = ({children}) =>{
     const [quantity, setQuantity] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    const removeItem = (itemId) => {
-      
-      const newList = productsCart.filter((item) => item.id !== itemId);
-      setProductsCart(newList);
 
+
+    function removeItem ( arr, item ) {
+      var i = arr.indexOf( item );
+   
+      if ( i !== -1 ) {
+          arr.splice( i, 1 );
+      }
+  }
+    // const removeItem = (itemId) => {
+    //   const newList = productsCart.filter((item) => item.id !== itemId);
+    //   console.log(newList)
+    //   setProductsCart(newList);
+    //   console.log('1')
+    //   console.log(productsCart)
+    //   console.log('2')
+    // };
+    
+    const restCantItem = (itemQuantity) => {
+      setQuantity(quantity-itemQuantity);
     };
   
     const changeQuantity = (count) => {
@@ -41,6 +56,7 @@ export const CartContextProvider = ({children}) =>{
           quantity,
           totalPrice,
           removeItem,
+          restCantItem,
           setProductsCart,
         }}
       >

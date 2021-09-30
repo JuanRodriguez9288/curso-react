@@ -11,7 +11,7 @@ import {CartContext} from '../context/CartContext'
 import loadingif from '../images/loading2.gif';
 
 function ItemDetailInCart({item}) {
-    const {quantity, addItem, IsInCart, removeItem, productsCart, setProductsCart} = useContext(CartContext)
+    const {quantity, addItem, IsInCart, removeItem, restCantItem, productsCart, setProductsCart} = useContext(CartContext)
     const [cart, setCart] = useState(true);
     const [itemCount, setItemCount] = useState();
     //const {setNotification}= useContext(NotificationContext)
@@ -28,12 +28,12 @@ function ItemDetailInCart({item}) {
     //         console.log(ev.key)
     //     }
     // }
-    const addToCart = () =>{
-        setCart(false);
-    }
-        const handleOnClick = () => {
-          setCart(true);
-        }
+    // const addToCart = () =>{
+    //     setCart(false);
+    // }
+    //     const handleOnClick = () => {
+    //       setCart(true);
+    //     }
 
 console.log(item.totalPrice)
     if(!item){
@@ -45,8 +45,10 @@ console.log(item.totalPrice)
 
     
     const onRemoveToCart = () => {
-          removeItem(item.id);
-          console.log('entra')
+          removeItem(productsCart, item);
+          restCantItem(item.quantity);
+          console.log('entraRemove')
+
     }
 
     return (

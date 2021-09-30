@@ -17,7 +17,6 @@ function Cart() {
         const list= productsCart
         console.log(list)
             setlistaProductsInCart(list)
-         
         },[])
     if(listaProductosInCart.length === 0){
         return <div className="imgBg ">
@@ -29,13 +28,13 @@ function Cart() {
             </div>
         </div>
         }
-        const onClearToCart = () => {
-            clear();
-            const list= productsCart
-            setlistaProductsInCart(list);
-            console.log('entraclear')
-      }
+
         
+        const OnClearToCart = () => {
+                clear();
+                setlistaProductsInCart([]);
+                console.log('entraclear')
+      }
 
         
     return (
@@ -44,7 +43,7 @@ function Cart() {
             <div className="groupCardDetail centrarPocosItems">
             {listaProductosInCart.map(itemBonsai => <a key={itemBonsai.id}><ItemDetailInCart item={itemBonsai}></ItemDetailInCart></a>)}
             </div>
-            <button type="button" className="" onClick={onClearToCart}>Vaciar carrito</button>
+            <button type="button" className="" onClick={OnClearToCart}>Vaciar carrito</button>
 
         </div>
         </>
