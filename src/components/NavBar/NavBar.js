@@ -46,7 +46,7 @@ const user = useContext(UserContext)
                 </a>
                 <ul className="dropdown-menu estiloUl" aria-labelledby="navbarDropdown">
                   <li><Link to={`/productlistdetail`} className="dropdown-item" href="#">Todos nuestros Bonsai</Link></li>
-                  {props.products.map(prod => <Link key={prod.id} to={`/productdetail/${prod.title}`} activeClassName="navLink" className="dropdown-item">{prod.title}</Link>)}
+                  {props.products.map(prod => <Link key={prod.id} to={`/productdetail/${prod.id}`} activeClassName="navLink" className="dropdown-item">{prod.title}</Link>)}
                   {/* <li><Link to={`/productdetail/Bonsai Hokidachi`} className="dropdown-item" href="#">Bonsai Hokidachi</Link></li>
                   {/* {props.products.map(cat => <Link key={cat.idCat} to={`/product/${cat.category}`} activeClassName="navLink" className="dropdown-item">{cat.category}</Link>)} */}
                 </ul>
@@ -58,9 +58,9 @@ const user = useContext(UserContext)
                 <ul className="dropdown-menu estiloUl" aria-labelledby="navbarDropdown">
                   {/* {props.products.map(prod => <Link key={prod.idCat} to={`/productdetailCat/${prod.category}`} activeClassName="navLink" className="dropdown-item">{prod.category}</Link>)}
                    */}
-                  <li><Link to={`/productdetailCat/TipoShonin`} className="dropdown-item" href="#">Tipo Shonin</Link></li>
-                  <li><Link to={`/productdetailCat/TipoChumono`} className="dropdown-item" href="#">Tipo Chumono</Link></li>
-                  <li><Link to={`/productdetailCat/TipoOmono`} className="dropdown-item" href="#">Tipo Omono</Link></li>
+                  <li><Link to={`/productdetailCat/Shonin`} className="dropdown-item" href="#">Tipo Shonin</Link></li>
+                  <li><Link to={`/productdetailCat/Chumono`} className="dropdown-item" href="#">Tipo Chumono</Link></li>
+                  <li><Link to={`/productdetailCat/Omono`} className="dropdown-item" href="#">Tipo Omono</Link></li>
                  </ul>
               </li>
               <li className="nav-item">

@@ -57,12 +57,12 @@ console.log(item.totalPrice)
         <img src={item.pictureUrl} className="card-img-top estiloImgCardDetail" alt="..."></img>
         <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
-        <h6 className="card-title">{item.category}</h6>
+        <h6 className="card-title">Tipo: {item.category}</h6>
         <p className="card-text">Precio U$S: {item.price}</p>
         <p className="card-text">Agregados: {item.quantity}</p>
         <p className="card-text">Precio total U$S: {item.totalPrice}</p>
         {/* <input onKeyDown={noVocales}/> */}
-        <button type="button" className="" onClick={onRemoveToCart}>Eliminar producto</button>
+        <button type="button" className="btnCartRemove" onClick={onRemoveToCart}>Eliminar</button>
         </div>      
     </div>
     )

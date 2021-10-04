@@ -47,7 +47,7 @@ function ItemDetail({item}) {
         <img src={item.pictureUrl} className="card-img-top estiloImgCardDetail" alt="..."></img>
         <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
-        <h6 className="card-title">{item.category}</h6>
+        <h6 className="card-title">Tipo: {item.category}</h6>
         <p className="card-text">Precio U$S: {item.price}</p>
         {/* <input onKeyDown={noVocales}/> */}
         

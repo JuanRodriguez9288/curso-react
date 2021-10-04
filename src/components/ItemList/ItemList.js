@@ -7,22 +7,25 @@ import loadingif from '../images/loading2.gif';
 import { Link, NavLink } from 'react-router-dom'
 
 
-function getList(recibe){
-      return new Promise((resolve, reject) => {
-        setTimeout (() => resolve(recibe), 3000)
-    })
-    }
+// function getList(recibe){
+//       return new Promise((resolve, reject) => {
+//         setTimeout (() => resolve(recibe), 500)
+//     })
+//     }
   
 function ItemList ({items}) {
   const [listaBonsai, setListaBonsai] = useState ([])
-  useEffect(()=>{
-    const list= getList(items)
-    console.log(list)
-    list.then(list =>{
-        setListaBonsai(list)
-     })
-        },[])
-    if(listaBonsai.length === 0){
+  // useEffect(()=>{
+  //   const list= items
+    
+  //   list.then(list =>{
+  //       setListaBonsai(list)
+  //    })
+  //       },[])
+        console.log('list')
+        console.log(listaBonsai)
+        console.log('list')
+    if(items.length === 0){
       return <ul className="list-group list-group-flush estiloLista centrar">
           <img className="gif" src={loadingif} alt="logo" />
       </ul>
@@ -30,7 +33,9 @@ function ItemList ({items}) {
     }
     return (
         <ul className="list-group list-group-flush estiloLista centrar bg-transparent">
-          {listaBonsai.map(bonsai => <Link to={`/productdetail/${bonsai.title}`} className="list-group-item estiloItemsLista" key={bonsai.id}><Item item={bonsai}></Item></Link>)}
+          {/* {items.map(bonsai => <Link to={`/productdetail/${bonsai.id}`} className="card bg-transparent estiloCardList" key={bonsai.id}><Item item={bonsai}></Item>aa</Link>)} */}
+          {items.map(bonsai => <Item item={bonsai}></Item>)}
+        
         </ul>
        )
      }

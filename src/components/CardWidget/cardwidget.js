@@ -21,9 +21,9 @@ const CardWidget = ({cantidad}) => {
   return (
   	
     <div className = 'divCart'>
-      <img src={logoCart} alt="logo" />
+      {/* <img src={logoCart} alt="logo" /> */}
+      <Link to={`/cart`} className="btn" onClick={handleOnClick}><img src={logoCart} alt="logo" /></Link>
       <p className="navbar-brand" href="#" >{cantidad}</p>
-      <Link to={`/cart`} className="btn" onClick={handleOnClick}>Ir</Link>
     </div>
   )
 }

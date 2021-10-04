@@ -31,7 +31,7 @@ function CounterWhitCommands({stock, initial, onAdd, setItemCount, item}) {
     if (count == item.stock) {
     }else{
       setCount(count + 1)
-      changeQuantity(quantity + 1);
+      //changeQuantity(quantity + 1);
     }
 }
 
@@ -39,7 +39,7 @@ function CounterWhitCommands({stock, initial, onAdd, setItemCount, item}) {
       if (count <= 0) {
       }else{
         setCount(count - 1)
-        changeQuantity(quantity - 1);
+        //changeQuantity(quantity - 1);
       }
   }
 
@@ -48,7 +48,8 @@ function CounterWhitCommands({stock, initial, onAdd, setItemCount, item}) {
 
 const onAddtoCart = () =>{
   const productsCartId = productsCart?.map(item=> item.id)
-
+  changeQuantity(quantity + count);
+  setCount(0)
   if (productsCartId?.includes(item.id)) {
   const updateCart = productsCart?.map (i => {
       if (i.id === item.id){

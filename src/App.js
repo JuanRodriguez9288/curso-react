@@ -8,6 +8,9 @@ import ItemDetailContainerFilterCat from './components/ItemDetailContainer/ItemD
 import Cart from './components/cart/cart';
 import { UserContext } from './components/context/UserContext'
 import { cartContext, CartContextProvider } from './components/context/CartContext'
+import {db} from './components/services/firebase/firebase'
+import {collection, getDocs, query, where} from 'firebase/firestore'
+import {useParams} from 'react-router-dom'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -21,27 +24,49 @@ import imgneagari from '../src/components/images/bonsaineagari.webp'
 import imgarcerojo from '../src/components/images/bonsaiarcerojo.jpg'
 import imgdecipres from '../src/components/images/bonsaidecipres.jpg'
 import {NotificationContextProvider} from './components/context/NotificationContext'
-const listaDeItems = [
-    {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi', stock:20, price:60, pictureUrl:imghokidachi},
-    {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:45, pictureUrl:imgsokan},
-    {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', stock:10, price:82, pictureUrl:imgkomono},
-    {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', stock:3, price:55, pictureUrl:imgneagari},
-    {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', stock:5, price:125, pictureUrl:imgarcerojo},
-    {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6, price:95, pictureUrl:imgdecipres},
+// const listaDeItems = [
+//     {id:'01', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Hokidachi', stock:20, price:60, pictureUrl:imghokidachi},
+//     {id:'02', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai Sokan', stock:12, price:45, pictureUrl:imgsokan},
+//     {id:'03', idCat:'TipoShonin', category:'Tipo Shonin', title:'Bonsai Komono', stock:10, price:82, pictureUrl:imgkomono},
+//     {id:'04', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Ne Agari', stock:3, price:55, pictureUrl:imgneagari},
+//     {id:'05', idCat:'TipoOmono', category:'Tipo Omono', title:'Bonsai Arce Rojo', stock:5, price:125, pictureUrl:imgarcerojo},
+//     {id:'06', idCat:'TipoChumono', category:'Tipo Chumono', title:'Bonsai de Ciprés', stock:6, price:95, pictureUrl:imgdecipres},
     
-    ]
-
-
+//     ]
 //export const UserContext = createContext()
 const App = () => {
   const [count, setCount] = useState (0)
   const [user, setUser] = useState (undefined)
+  const [listaDeItems, setListaDeItems] = useState ([])
+  const [loading, setLoading] = useState(true)
+  
+  useEffect(() => {
+    
+        setLoading(true)
+        getDocs(collection(db, 'listaDeBonsai')).then((querySnapshot) => {
+            const products = querySnapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            }) 
+            
+            setListaDeItems(products)
+            console.log('nocat')
+            console.log(products)
+            console.log('nocat')
+        }).catch((error) => {
+            console.log('Error searching intems', error)
+        }).finally(() => {
+            setLoading(false)
+        })
+    
+        
+         
+}, [])
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setUser('pruebacontexto')
-    }, 5000)
-  },[])
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setUser('pruebacontexto')
+  //   }, 5000)
+  // },[])
 
 
 
@@ -75,10 +100,10 @@ const App = () => {
           <Route path="/productlistdetail">
           <ItemDetailContainer/>
           </Route>
-          <Route path="/productdetail/:title">
+          <Route path="/productdetail/:id">
           <ItemDetailContainerFilter/>
           </Route>
-          <Route path="/productdetailCat/:idCat">
+          <Route path="/productdetailCat/:category">
           <ItemDetailContainerFilterCat/>
           </Route>
           <Route path="/cart">

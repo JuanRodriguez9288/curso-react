@@ -35,7 +35,15 @@ function Cart() {
                 setlistaProductsInCart([]);
                 console.log('entraclear')
       }
-
+      function sumarPreciosTotales(listaProd){
+        let total=0;
+        let precios = listaProd;
+        precios.forEach(function(a){total += a.totalPrice;});
+        console.log(total);
+        return total;
+        
+      }
+      
         
     return (
         <>
@@ -43,8 +51,11 @@ function Cart() {
             <div className="groupCardDetail centrarPocosItems">
             {listaProductosInCart.map(itemBonsai => <a key={itemBonsai.id}><ItemDetailInCart item={itemBonsai}></ItemDetailInCart></a>)}
             </div>
-            <button type="button" className="" onClick={OnClearToCart}>Vaciar carrito</button>
-
+            <h5>Total a pagar: U$S {sumarPreciosTotales(listaProductosInCart)}</h5>
+            <button type="button" className="btnCartRemove" onClick={OnClearToCart}>Vaciar carrito</button>
+            <br></br>
+            <Link to={`/productlistdetail`} className="btn btnCart">Volver a la tienda</Link>
+        
         </div>
         </>
       )
