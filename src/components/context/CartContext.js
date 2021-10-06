@@ -15,6 +15,15 @@ export const CartContextProvider = ({children}) =>{
           arr.splice( i, 1 );
       }
   }
+  function removeItemAutoWhen0 ( arr, item ) {
+    if(item.quantity === 0){
+        var i = arr.indexOf( item );
+ 
+        if ( i !== -1 ) {
+        arr.splice( i, 1 );
+    }
+    }
+}
     // const removeItem = (itemId) => {
     //   const newList = productsCart.filter((item) => item.id !== itemId);
     //   console.log(newList)
@@ -44,6 +53,15 @@ export const CartContextProvider = ({children}) =>{
     const addItem = (item, quantity) => {
       setProductsCart(item, quantity);
     };
+
+    function totalPriceCart(itemsInCart){
+      let total=0;
+      let allTotalprices = itemsInCart;
+      allTotalprices.forEach(function(a){total += a.totalPrice;});
+      console.log(total);
+      return total;
+      
+    }
   
     return (
       <CartContext.Provider
@@ -56,8 +74,10 @@ export const CartContextProvider = ({children}) =>{
           quantity,
           totalPrice,
           removeItem,
+          removeItemAutoWhen0,
           restCantItem,
           setProductsCart,
+          totalPriceCart,
         }}
       >
         {children}

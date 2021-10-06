@@ -36,7 +36,7 @@
 
   .btnCart {
     background-color: #0d5a1196;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: 'none';
     list-style: 'none';
     color: #1a1f21;
@@ -99,6 +99,27 @@
   border-top: 1px solid rgb(148, 112, 12);
 }
 .btnCartRemove:hover{
+  transform: scale(1.1, 1.1);
+  transition: all 300ms ease-in-out;
+}
+.btnCartRemoveAll {
+  background-color: #d3450d96;
+  font-weight: 500;
+  text-decoration: 'none';
+  list-style: 'none';
+  color: #eaeef0;
+  width: 10.8em;
+  height: 1.5em;
+  margin-top: 8px;
+  margin-left: 5px;
+  padding-top: -12px;
+  border-radius: 5px 5px 5px 5px;
+  border-bottom: 1px solid rgb(148, 112, 12);
+  border-left: 1px solid rgb(148, 112, 12);
+  border-right: 1px solid rgb(148, 112, 12);
+  border-top: 1px solid rgb(148, 112, 12);
+}
+.btnCartRemoveAll:hover{
   transform: scale(1.1, 1.1);
   transition: all 300ms ease-in-out;
 }
