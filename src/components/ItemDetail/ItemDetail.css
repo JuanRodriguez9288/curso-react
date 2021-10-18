@@ -37,10 +37,10 @@
   .btnCart {
     background-color: #0d5a1196;
     font-weight: 400;
-    text-decoration: 'none';
-    list-style: 'none';
+    text-decoration: none;
+    list-style: none;
     color: #1a1f21;
-    width: 6.8em;
+    width: auto;
     height: 1.5em;
     margin-top: -8px;
     margin-left: 5px;

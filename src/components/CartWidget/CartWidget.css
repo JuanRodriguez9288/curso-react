@@ -6,7 +6,10 @@
   align-content: center;
   align-self: center;
   align-items: center;
-  margin-right: 1%;
+  height: 60px;
+  width: 90px;
+  margin-right: 0px;
+  margin-bottom: auto;
   padding-left: 5px;
   border-color:  rgba(87, 47, 5, 0.322) ;
   border-style: solid;

@@ -3,6 +3,11 @@
     max-width: 50px;
     border-radius: 2px 2px 2px 2px;
   }
+  .estiloImgUser {
+    max-height: 30px;
+    max-width: 30px;
+    border-radius: 2px 2px 2px 2px;
+  }
   .estiloLink {
     text-decoration: none;
     color: rgba(59, 59, 59, 0.931);
@@ -17,14 +22,13 @@
   }
   .estiloHeader {
     z-index: 100;
-    background: #cccdcd;
     background: linear-gradient(10deg, rgba(21, 129, 6, 0.63) 0%, rgba(148, 82, 7, 0.74) 50%, rgba(21, 129, 6, 0.63) 100%);
     margin-left: 1%;
     margin-bottom: 0.3%;
     position: fixed;
     top: 0;
     width: 98%;
-    height: 3rem;
+    /* height: 3rem; */
     min-height: 80px;
     border-bottom: 2px solid gray;
     border-radius: 0px 0px 10px 10px;
@@ -38,3 +42,151 @@
     border-bottom: 2px solid gray;
     border-radius: 0px 0px 10px 10px;
   }
+
+  .btnLogin {
+    background-color: #15851a96;
+    font-weight: 400;
+    text-decoration: 'none';
+    list-style: 'none';
+    color: #1a1f21;
+    width: auto;
+    height: 1.5em;
+    font-size: 16px;
+    margin-top: -8px;
+    position: relative;
+    margin-right: 10px;
+    padding-top: -12px;
+    border-radius: 8px 8px 8px 8px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+  .btnLogin:hover{
+    transform: scale(1.1, 1.1);
+    transition: all 300ms ease-in-out;
+ }
+
+ .btnLogout {
+    background-color: #d3450d96;
+    font-weight: 500;
+    text-decoration: 'none';
+    list-style: 'none';
+    color: #eaeef0;
+    width: 6em;
+    height: 1.5em;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding-top: -12px;
+    margin-left: 5px;
+    border-radius: 8px 8px 8px 8px;
+    border-bottom: 1px solid rgb(148, 112, 12);
+    border-left: 1px solid rgb(148, 112, 12);
+    border-right: 1px solid rgb(148, 112, 12);
+    border-top: 1px solid rgb(148, 112, 12);
+  }
+  .btnLogout:hover{
+    transform: scale(1.1, 1.1);
+    transition: all 300ms ease-in-out;
+  }
+
+  .btnUser {
+    background-color: transparent;
+    font-weight: 500;
+    text-decoration: none;
+    list-style: none;
+    color: #eaeef0;
+    width: 6em;
+    height: 1.5em;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding-top: -12px;
+    margin-left: 5px;
+    border-radius: 8px 8px 8px 8px;
+    border-bottom: 0px solid rgb(148, 112, 12);
+    border-left: 0px solid rgb(148, 112, 12);
+    border-right: 0px solid rgb(148, 112, 12);
+    border-top: 0px solid rgb(148, 112, 12);
+  }
+  /* .btnUser:hover{
+    transform: scale(1.1, 1.1);
+    transition: all 300ms ease-in-out;
+  } */
+
+  .widgetUserCart{
+  display: flex;
+  align-content: space-between;
+  margin-right: 5px;
+  }
+
+  .widgetUserCartMenu {
+    background: #cccdcd;
+    background: linear-gradient(10deg, rgba(21, 129, 6, 0.63) 0%, rgba(148, 82, 7, 0.74) 50%, rgba(21, 129, 6, 0.63) 100%);
+    align-items: space-around;
+    justify-content: center;
+    width: 1em;
+    min-height: 50px;
+  }
+
+  .btnMenuUser {
+    background-color: #0d5a1196;
+    font-weight: 400;
+    text-decoration: 'none';
+    list-style: 'none';
+    color: #13171ab6;
+    width: 120px;
+    height: 1.5em;
+    font-size: 16px;
+    margin-left: 2px;
+    border-radius: 5px 5px 5px 5px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+  .btnMenuUser:hover{
+    transform: scale(1.05, 1.05);
+    transition: all 300ms ease-in-out;
+ }
+
+ .btnMenuUserExit {
+  background-color: #ad411696;
+  font-weight: 400;
+  text-decoration: 'none';
+  list-style: 'none';
+  color: #13171ab6;
+  width: 120px;
+  height: 1.5em;
+  font-size: 16px;
+  margin-left: 2px;
+  border-radius: 5px 5px 5px 5px;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+}
+.btnMenuUserExit:hover{
+  transform: scale(1.05, 1.05);
+  transition: all 300ms ease-in-out;
+}
+
+.navBar1 {
+  background-color: transparent;
+}
+
+@media all and (max-width:991px){
+  .widgetUserCart{
+    display: flex;
+    align-content: space-between;
+    margin-left: 5px;
+    }
+ 
+}

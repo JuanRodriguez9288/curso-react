@@ -8,7 +8,6 @@ function Item({item}) {
     return(
         <div>
             <Link to={`/productdetail/${item.id}`} className="card bg-transparent estiloCardList" key={item.id}>{item.title}</Link>
-            {/* <li>{item.title}</li>  */}
         </div>
                
     );

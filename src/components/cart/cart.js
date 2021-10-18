@@ -4,63 +4,90 @@ import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetailInCart from '../ItemDetail/ItemDetailInCart';
 import {CartContext} from '../context/CartContext'
+import {UserContext} from '../context/UserContext'
 import {collection, addDoc, getDoc, doc, Timestamp, writeBatch} from 'firebase/firestore'
 import {db} from '../services/firebase/firebase'
 import { Link, NavLink } from 'react-router-dom'
-//import loadingif from '../images/loading2.gif';
-// const orden = [
-//     {buyer:{name:'juan', phone:'12345', email:'aaa@gmail.com'}},
-//     {items:[{id:'qqwqqe', title:'item1', price:585}], total:1000}
-//     ]
+import estilo from'./cart.css';
+import { getModularInstance } from '@firebase/util';
+
 
 function Cart() {
     const [listaProductosInCart, setlistaProductsInCart] = useState ([])
-    
+    const [buyFinally, setBuyFinally] = useState(false)
+    const [codBuyUser, setCodBuyUser] = useState(undefined)
+    const [userBuyer, setuserBuyer] = useState('')
     const { quantity, changeQuantity, addItem, productsCart, setProductsCart, removeItem, totalPriceCart, clear } = useContext(CartContext);
     const [processingOrder, setProcessingOrder] = useState(false)
-    console.log(productsCart)
+    const { login, userName } = useContext(UserContext)
+    
     useEffect(()=>{
         const list= productsCart
-        console.log(list)
+        
             setlistaProductsInCart(list)
+            setuserBuyer(userName)
         },[])
 
     
 
-    if(listaProductosInCart.length === 0){
-        return <div className="imgBg ">
-            <div className="groupCardDetail centrar">
-                <h2>Carrito vacío</h2>
-                <Link to={`/productlistdetail`} className="btn btnCart">Volver a la tienda</Link>
+    if(listaProductosInCart.length === 0 ){
+        if(!buyFinally){
         
-            {/* <img className="gif" src={loadingif} alt="logo" /> */}
+        return <div className="imgBg ">
+            <div className="divCartVoid">
+                <h2>Carrito vacío</h2>
+                <br></br>
+                <Link to={`/productlistdetail`} ><button type="button" className="btnCartBack">Volver a la tienda</button>
+                </Link>
             </div>
         </div>
-        }
+        }else{
+        return <div className="imgBg ">
+        <div className="divCartVoid">
+            <h2>Compra realizada con éxito.</h2>
+            <br></br>
+            <h3>El código de su compra es: {codBuyUser}</h3>
+            <br></br>
+            <Link to={`/productlistdetail`} ><button type="button" className="btnCartBack">Volver a la tienda</button>
+            </Link>
+        </div>
+        </div>
+        }    
+    }
 
     const OnClearToCart = () => {
         clear();
         setlistaProductsInCart([]);
-        console.log('entraclear')
+        
     }
     function setTotalPrice(listProd){
         return totalPriceCart(listProd);
     }
 
+    if(!userName){
+        OnClearToCart();
+    }
+    
     const confirmOrder = () => {
 
         setProcessingOrder(true)
-        const name = document.getElementById("inputName").value;
+        
         const phone = document.getElementById("inputPhone").value;
         const email = document.getElementById("inputEmail").value;
+        const buyDoc = document.getElementById("inputDocument").value;
+        const dateBuy = Date.now();
         
+
         const objOrder = {
-            buyer: name,
+            buyer: userBuyer,
             phone: phone,
             email: email,
+            docBuyer: buyDoc,
+            codBuy: buyDoc+dateBuy,
             items: listaProductosInCart,
             total: setTotalPrice(listaProductosInCart),
-            date: Timestamp.fromDate(new Date())
+            date : dateBuy,
+            status: 'Pedido recibido'
         }
                     
         const batch = writeBatch(db)
@@ -69,7 +96,7 @@ function Cart() {
         objOrder.items.forEach((prod, i) => {
             getDoc(doc(db, 'listaDeBonsai', prod.id)).then(DocumentSnapshot => {
                 if(DocumentSnapshot.data().stock >= objOrder.items[i].quantity) {
-                    batch.update(doc(db, 'items', DocumentSnapshot.id), {
+                    batch.update(doc(db, 'listaDeBonsai', DocumentSnapshot.id), {
                         stock: DocumentSnapshot.data().stock - objOrder.items[i].quantity
                     })
                 } else {
@@ -80,31 +107,23 @@ function Cart() {
         })
 
         if(outOfStock.length === 0) {
-            alert('Compra realizada con éxito')
+            
             addDoc(collection(db, 'orders'), objOrder).then(() => {
                 batch.commit().then(() => {
-                    //setNotification('success', 'La orden se ejecuto con exito')
-                    //alert('La orden se ejecuto con exito')
+                    
                 })
             }).catch((error) => {
-                //setNotification('error','Error al ejecutar la orden')
-                alert('Error al ejecutar la compra')
+                
+                
             }).finally(() => {
                 setProcessingOrder(false)
-
-                //clearCart()
-                //setTotal(0)
+                setBuyFinally(true)
+                setCodBuyUser(objOrder.codBuy)               
+                
             })
             OnClearToCart();
         }
     }
-
-    // function finalizarCompra(){
-    //     modalCompra.modal();
-    // }
-    
-
-
 
 
     return (
@@ -113,22 +132,45 @@ function Cart() {
             <div className="groupCardDetail centrarPocosItems">
             {listaProductosInCart.map(itemBonsai => <a key={itemBonsai.id}><ItemDetailInCart item={itemBonsai}></ItemDetailInCart></a>)}
             </div>
-            <h5>Total a pagar: U$S {setTotalPrice(listaProductosInCart)}</h5>
-            <button type="button" className="btnCartRemove" onClick={OnClearToCart}>Vaciar carrito</button>
-            <br></br>
-            {/* <button type="button" className="btnCartRemove" onClick={finalizarCompra}>Vaciar carrito</button>
-            <br></br> */}
-            
-            <Link to={`/productlistdetail`} ><button type="button" className="btnCart">Volver</button>
+            <div className="divCartActions">
+                <h5>Total a pagar: U$S {setTotalPrice(listaProductosInCart)}</h5>
+                <button type="button" className="btnCartRemove" onClick={OnClearToCart}>Vaciar carrito</button>
+                <button type="button" className="btnCart" data-bs-toggle="modal" data-bs-target="#endBuy">
+                    Finalizar compra
+                </button>
+                <Link to={`/productlistdetail`} ><button type="button" className="btnCart">Volver</button>
             </Link>
-            <h5>Para finalizar la compra ingrese sus datos</h5>
-            <input type="text" id="inputName" placeholder="Nombre"></input>
-            <br></br>
-            <input type="text" id="inputPhone" placeholder="Teléfono"></input>
-            <br></br>
-            <input type="text" id="inputEmail" placeholder="e-mail"></input>
-            <br></br>
-            <button onClick={() => confirmOrder()} className="Button" className="btnCart">Confirmar</button>
+            </div>
+            
+           
+            <div className="modal fade" id="endBuy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                <div className="modal-content modalEndBuy">
+                <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Finalizar la compra</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <h5 >Por favor</h5>
+                    <h5>{userName}</h5>
+                    <h5 >ingrese sus datos para finalizar la compra</h5>
+                    <br></br>
+                    <input className="dataInput" type="text" id="inputPhone" placeholder="Teléfono"></input>
+                    <br></br>
+                    <input className="dataInput" type="text" id="inputEmail" placeholder="e-mail"></input>
+                    <br></br>
+                    <input className="dataInput" type="text" id="inputDocument" placeholder="Documento"></input>
+                    <br></br>
+                </div>
+                <div className="modal-footer">
+                <button type="button" className="btnCartRemove" data-bs-dismiss="modal">Volver</button>
+                <button type="button" onClick={() => confirmOrder()} className="btnCart" data-bs-dismiss="modal">Confirmar</button>
+            
+            </div>
+            </div>
+        </div>
+    </div>
+
             <br></br>
         </div>
         </>

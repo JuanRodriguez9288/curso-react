@@ -4,37 +4,30 @@ import { Link, NavLink } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import logoNavBar from '../images/logoprueba.png';
+import logoUser from '../images/user.png';
 import estilo from'./NavBar.css';
-import CardWidget from '../CardWidget/cardwidget';
-import {UserContext} from '../../components/context/UserContext'
+import CartWidget from '../CartWidget/CartWidget';
 import {CartContext} from '../context/CartContext'
+
+
+import {UserContext} from '../context/UserContext'
+
 
 function NavBar(props) {
 
 const { quantity, changeQuantity, addItem, productsCart, setProductsCart } = useContext(CartContext);
-
-  // const [info, setInfo] = useState ('')
-const user = useContext(UserContext)
-  useEffect ( () =>{
-    console.log ('Después del primer renderizado')
-        return () => {
-          console.log ('Antes de desmontar el componente')
-        }
-  }, [] )
-  console.log ('El componente va a ser renderizado')
+const {userName, logout} = useContext(UserContext)
   
- // const ItemListContainer = () => {
- //     console.log('Texto de prueba ItemListContainer')
- //   }
- // function ItemListContainer() {
- //     console.log('Texto de prueba ItemListContainer')
- //   }
+  const handleLogout = () => {
+    logout()
+  }
+ 
   return (
     <>
     <div>
-      <nav className='NavBar' className="navbar navbar-expand-lg navbar-light bg-transparent estiloHeader">
-        <div className="container-fluid">
-          <Link to={`/`} className="estiloLink" aria-current="page" href="#"><img className='estiloImgLogo' src={logoNavBar} alt="logo" />BonsaiClub{user}</Link>
+      <nav className="navbar navbar-expand-lg navbar-light estiloHeader">
+        <div className="navBar1 container-fluid">
+          <Link to={`/`} className="estiloLink" aria-current="page" href="#"><img className='estiloImgLogo' src={logoNavBar} alt="logo" />BonsaiClub</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
           </button>
@@ -47,8 +40,7 @@ const user = useContext(UserContext)
                 <ul className="dropdown-menu estiloUl" aria-labelledby="navbarDropdown">
                   <li><Link to={`/productlistdetail`} className="dropdown-item" href="#">Todos nuestros Bonsai</Link></li>
                   {props.products.map(prod => <Link key={prod.id} to={`/productdetail/${prod.id}`} activeClassName="navLink" className="dropdown-item">{prod.title}</Link>)}
-                  {/* <li><Link to={`/productdetail/Bonsai Hokidachi`} className="dropdown-item" href="#">Bonsai Hokidachi</Link></li>
-                  {/* {props.products.map(cat => <Link key={cat.idCat} to={`/product/${cat.category}`} activeClassName="navLink" className="dropdown-item">{cat.category}</Link>)} */}
+                  
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -56,23 +48,49 @@ const user = useContext(UserContext)
                 Categorias
                 </a>
                 <ul className="dropdown-menu estiloUl" aria-labelledby="navbarDropdown">
-                  {/* {props.products.map(prod => <Link key={prod.idCat} to={`/productdetailCat/${prod.category}`} activeClassName="navLink" className="dropdown-item">{prod.category}</Link>)}
-                   */}
+                  
                   <li><Link to={`/productdetailCat/Shonin`} className="dropdown-item" href="#">Tipo Shonin</Link></li>
                   <li><Link to={`/productdetailCat/Chumono`} className="dropdown-item" href="#">Tipo Chumono</Link></li>
                   <li><Link to={`/productdetailCat/Omono`} className="dropdown-item" href="#">Tipo Omono</Link></li>
                  </ul>
               </li>
               <li className="nav-item">
-                {user&& <a className="nav-link" href="#">Contacto</a>}
+                
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Dónde estamos?</a>
+              {
+                userName 
+                  ? <div className="widgetUserCart">
+                  
+                  <div className="dropdown">
+                  <button className="btnUser dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img className='estiloImgUser' src={logoUser} alt="user" />
+                  </button>
+                  <ul className="dropdown-menu h-auto widgetUserCartMenu" aria-labelledby="dropdownMenuButton1">
+                  <li><p>Usuario: {userName}</p></li>
+                  <li><Link to='/findingorder'><button className="btnMenuUser">Buscar compra</button></Link></li>
+                  <li><button className="btnMenuUserExit" onClick={handleLogout}>Salir</button ></li>
+                  </ul>
+                  </div>
+                  </div>
+                  : <div><Link to='/login'><button className="btnLogin">Ingresar</button></Link>
+                  </div>
+              }
               </li>
             </ul>
           </div>
         </div>
-        <CardWidget cantidad={quantity} />
+        <div>
+      </div>
+      {
+        userName 
+                  ? <div className="widgetUserCart">
+                  <div>
+                  <CartWidget cantidad={quantity} />
+                  </div>
+                  </div>
+                  : <></>
+              }
         </nav>
     </div>
     </>

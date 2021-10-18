@@ -24,14 +24,7 @@ export const CartContextProvider = ({children}) =>{
     }
     }
 }
-    // const removeItem = (itemId) => {
-    //   const newList = productsCart.filter((item) => item.id !== itemId);
-    //   console.log(newList)
-    //   setProductsCart(newList);
-    //   console.log('1')
-    //   console.log(productsCart)
-    //   console.log('2')
-    // };
+    
     
     const restCantItem = (itemQuantity) => {
       setQuantity(quantity-itemQuantity);
@@ -58,7 +51,7 @@ export const CartContextProvider = ({children}) =>{
       let total=0;
       let allTotalprices = itemsInCart;
       allTotalprices.forEach(function(a){total += a.totalPrice;});
-      console.log(total);
+      
       return total;
       
     }
@@ -83,13 +76,5 @@ export const CartContextProvider = ({children}) =>{
         {children}
       </CartContext.Provider>
     );
-
-
-
-
-
-
-
-
 
 }

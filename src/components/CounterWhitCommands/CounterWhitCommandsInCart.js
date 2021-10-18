@@ -1,29 +1,13 @@
-
 import React, { useState, useEffect, useContext } from 'react'
 import {CartContext} from '../context/CartContext'
 import estilo from'./CounterWhitCommands.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import NotificationContext from '../context/NotificationContext';
 
 
 function CounterWhitCommandsInCart({stock, initial, onClearCant, setItemCount, item}) {
   const [count, setCount] = useState (initial)
   const { quantity,totalPriceProd, changeQuantity, removeItemAutoWhen0, productsCart, setProductsCart } = useContext(CartContext);
-  //const {setNotification}= useContext(NotificationContext)
-  // const [view, setView] = useState (true)
-  // console.log(count)
-  // console.log(setCount)
-  // function btnDisable(valorContador){
-  //   console.log('recibo'+valorContador)
-  //   if (valorContador == stock) {
-  //     document.getElementById("btnSumar").disabled = true;
-  //   }else{
-  //     document.getElementById("btnSumar").disabled = false;
-  //   }
-  // }
-  // useEffect(() => {
-  //   changeQuantity(count);
-  // }, [count]);
+  
   setItemCount(count)
 
 
@@ -31,7 +15,6 @@ function CounterWhitCommandsInCart({stock, initial, onClearCant, setItemCount, i
     if (count == item.quantity) {
     }else{
       setCount(count + 1)
-      //changeQuantity(quantity + 1);
     }
 }
 
@@ -39,7 +22,6 @@ function CounterWhitCommandsInCart({stock, initial, onClearCant, setItemCount, i
       if (count <= 0) {
       }else{
         setCount(count - 1)
-        //changeQuantity(quantity - 1);
       }
   }
 
@@ -61,7 +43,7 @@ function CounterWhitCommandsInCart({stock, initial, onClearCant, setItemCount, i
             <h5 className="txtCantidad">{count}</h5>
           <button id="btnSumar" className="btnCounterRemove" onClick={handleAdd} disabled={count === item.quantity}>+</button>
           <div>
-            {/* <button type="button" className="btnAdd" onClick={()=> onConfirm(count)}>Agregar</button> */}
+            
             <button type="button" className="btnRemove" onClick={onRemoveCantToCart}>Eliminar</button>
 
           </div>

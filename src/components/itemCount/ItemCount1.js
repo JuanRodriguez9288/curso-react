@@ -1,11 +1,9 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import NotificationContext from '../context/NotificationContext';
 
 const ItemCount = ({product, productsAdded, addProdFunction}) =>{
     const [quantity, setQuantity] = useState(0)
-    const {setNotifiction} = useContext(NotificationContext)
 
     const onAdd = () =>{
         if(quantity < product.stock){
